@@ -9,7 +9,7 @@
 
 <form>
     <label for="form2_painter">The hidden painter name</label>
-    <input type="password" id="form2_painter" name="form2_painter" value="Monet"><br>
+    <input type="password" id="form2_painter" name="form2_painter" value="Monet"><br><br>
 
 
     <label for="form2_guess">Guess the painter</label>
@@ -22,6 +22,7 @@
 
 
 <script>
+
     var good = 0;
     var oops = 0;
     function checkPainter() {
@@ -43,5 +44,30 @@
     }
 </script>
 
+<div class="container">
+    <img id="pic" src="NorfolkIslandPine.jpg" height="100" weight="100" onclick="selectImage()">
+</div>
+
+<script>
+    var useImage=1
+    var img=document.getElementById("pic")
+    function selectImage(){
+        switch(useImage){
+            case 1:
+                img.src="grapevines.jpg"
+                useImage++
+                break
+            case 2:
+                img.src="AfricanViolet.jpg"
+                useImage++
+                break
+            case 3:
+                img.src="NorfolkIslandPine.jpg"
+                useImage=1
+                break
+            default:
+        }
+    }
+</script>
 </body>
 </html> 
