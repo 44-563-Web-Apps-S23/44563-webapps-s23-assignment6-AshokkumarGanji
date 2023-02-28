@@ -1,45 +1,98 @@
 <!DOCTYPE html>
 <html>
- 
-<head><title>shows currency conversions</title></head>
+
+<head>
+    <title>shows currency conversions</title>
+</head>
+
 <body>
 
-<h2>Ashok Kumar Ganji shows currency conversions</h2>
+    <h2>Ashok Kumar Ganji shows currency conversions</h2>
 
-<form>
-    <label for="form1_age">Enter base amount </label>
-    <input type ="number" id="form1_age" name="form1_age"  value=50> <br>
+    <form>
+        <label for="form1_age">Enter base amount </label>
+        <input type="number" id="form1_age" name="form1_age" value=50> <br>
 
-    <label for="form1_nick">Enter the conversion rate.</label>
-    <input type ="number" id="form1_nick" name="form1_nick" value=35> <br>
+        <label for="form1_nick">Enter the conversion rate.</label>
+        <input type="number" id="form1_nick" name="form1_nick" value=35> <br>
 
-    <input type="button" onclick="convert()" value="Shows conversions">
-</form>
+        <input type="button" onclick="convert()" value="Shows conversions">
+    </form>
 
 
-<p id="result">This text will be replaced </p>
+    <p id="result">value is converted value; </p>
 
-<script> 
+    <script>
 
-    function convert (){
-        
-        baseamount = document.getElementById("form1_age").value
-        conversionrate = document.getElementById("form1_nick").value
-        toShow = ""
-        for (i = 1; i <= 5; i++) {
-            toShow = baseamount +" is "+ Math.round(conversionrate*baseamount*100)/100+"; "+
-            baseamount*2+" is " +Math.round(conversionrate*baseamount*2*100)/100+ "; "+
-            baseamount*4 +" is " +Math.round(conversionrate*baseamount*4*100)/100+ "; "+
-            baseamount*8 +" is " +Math.round(conversionrate*baseamount*8*100)/100+ "; "+
-            baseamount*16 + " is " +Math.round(conversionrate*baseamount*16*100)/100+ "; "
+        function convert() {
+
+            baseamount = document.getElementById("form1_age").value
+            conversionrate = document.getElementById("form1_nick").value
+            toShow = ""
+            for (i = 1; i <= 5; i++) {
+                toShow = baseamount + " is " + Math.round(conversionrate * baseamount * 100) / 100 + "; " +
+                    baseamount * 2 + " is " + Math.round(conversionrate * baseamount * 2 * 100) / 100 + "; " +
+                    baseamount * 4 + " is " + Math.round(conversionrate * baseamount * 4 * 100) / 100 + "; " +
+                    baseamount * 8 + " is " + Math.round(conversionrate * baseamount * 8 * 100) / 100 + "; " +
+                    baseamount * 16 + " is " + Math.round(conversionrate * baseamount * 16 * 100) / 100 + "; "
             }
-        out = document.getElementById("result")
-        if(toShow){
-            out.innerHTML = "Conversions are: " + toShow
-        } 
-    }
+            out = document.getElementById("result")
+            if (toShow) {
+                out.innerHTML = "Conversions are: " + toShow
+            }
+        }
     </script>
 
+    <form>
+        <label>
+            <input type="radio" name="operation" value="mean" onClick="chooseOp()"> Average
+        </label>
+        <label>
+            <input type="radio" name="operation" value="maximum" onClick="chooseOp()"> Max
+        </label>
+        <label>
+            <input type="radio" name="operation" value="minimum" onClick="chooseOp()"> Min
+        </label>
+    </form>
+
+    <p id="result1"></p>
+
+    <script>
+        function chooseOp() {
+            const base = parseFloat(document.getElementById("form1_age").value);
+            const conversion = parseFloat(document.getElementById("form1_nick").value);
+            const operation = document.querySelector('input[name="operation"]:checked').value;
+
+            let result1;
+            switch (operation) {
+                case "mean":
+                    result1 = (base * conversion / 2)
+                    out.innerHTML = "Average of " + base + " and " + conversion + " is " + result1
+                    break;
+                case "maximum":
+                    if (base > conversion)
+                        result1 = base
+                    else
+                        result1 = conversion
+
+                    out.innerHTML = "Max of " + base + " and " + conversion + " is " + result1
+                    break;
+                case "minimum":
+                    if (base < conversion)
+                        result1 = base
+                    else
+                        result1 = conversion
+
+                    out.innerHTML = "Min of " + base + " and " + conversion + " is " + result1
+                    break;
+                default:
+                    result1 = "";
+            }
+
+            document.getElementById("result1").innerHTML = `${operation} of ${base} and ${conversion} is ${result1}`;
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
