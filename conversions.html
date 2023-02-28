@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ 
+<head><title>shows currency conversions</title></head>
+<body>
+
+<h2>Ashok Kumar Ganji shows currency conversions</h2>
+
+<form>
+    <label for="form1_age">Enter base amount </label>
+    <input type ="number" id="form1_age" name="form1_age"  value=50> <br>
+
+    <label for="form1_nick">Enter the conversion rate.</label>
+    <input type ="number" id="form1_nick" name="form1_nick" value=35> <br>
+
+    <input type="button" onclick="convert()" value="Shows conversions">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+    function convert (){
+        
+        baseamount = document.getElementById("form1_age").value
+        conversionrate = document.getElementById("form1_nick").value
+        toShow = ""
+        for (i = 1; i <= 5; i++) {
+            toShow = baseamount +" is "+ Math.round(conversionrate*baseamount*100)/100+"; "+
+            baseamount*2+" is " +Math.round(conversionrate*baseamount*2*100)/100+ "; "+
+            baseamount*4 +" is " +Math.round(conversionrate*baseamount*4*100)/100+ "; "+
+            baseamount*8 +" is " +Math.round(conversionrate*baseamount*8*100)/100+ "; "+
+            baseamount*16 + " is " +Math.round(conversionrate*baseamount*16*100)/100+ "; "
+            }
+        out = document.getElementById("result")
+        if(toShow){
+            out.innerHTML = "Conversions are: " + toShow
+        } 
+    }
+    </script>
+
+
+</body>
+</html> 
