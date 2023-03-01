@@ -10,13 +10,13 @@
     <h2>Ashokkumar Ganji chooses candy</h2>
 
     <form>
-        <input type="checkbox" id="DarkChocolate" name="topping1" value="True">
+        <input type="checkbox" id="DarkChocolate" name="topping" value="True">
         <label for="Dark Chocolate">Dark Chocolate</label></br>
 
-        <input type="checkbox" id="Nuts" name="topping2" value="True">
+        <input type="checkbox" id="Nuts" name="topping" value="True">
         <label for="Nuts">Nuts</label></br>
 
-        <input type="checkbox" id="Chewy" name="topping3" value="False">
+        <input type="checkbox" id="Chewy" name="topping" value="False">
         <label for="Chewy">Chewy</label></br>
 
         <input type="button" class="btn btn-success" type="button" onclick="selectBox()" value="Select a box ">
@@ -38,7 +38,7 @@
     </form>
 
 
-    <p id="result1">This text will be replaced </p>
+    <!--<p id="result1">This text will be replaced </p> -->
 
 
 
@@ -64,7 +64,7 @@
             myCandyBox.size = size;
             myCandyBox.price = price;
 
-            document.getElementById("result1").innerHTML = JSON.stringify(myCandyBox);
+            document.getElementById("result").innerHTML = JSON.stringify(myCandyBox);
         }
 
 
