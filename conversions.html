@@ -62,7 +62,8 @@
             const base = parseFloat(document.getElementById("form1_age").value);
             const conversion = parseFloat(document.getElementById("form1_nick").value);
             const operation = document.querySelector('input[name="operation"]:checked').value;
-
+           
+            out=document.getElementById("result1")
             let result1;
             switch (operation) {
                 case "mean":
